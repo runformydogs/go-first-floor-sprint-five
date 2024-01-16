@@ -146,7 +146,6 @@ func (s Swimming) Calories() float64 {
 
 // TrainingInfo returns info about swimming training.
 func (s Swimming) TrainingInfo() InfoMessage {
-	// вставьте ваш код ниже
 	info := s.Training.TrainingInfo()
 	info.Calories = s.Calories()
 	return info
