@@ -58,7 +58,7 @@ func (t Training) TrainingInfo() InfoMessage {
 	return info
 }
 
-// String возвращает строку с информацией о проведенной тренировке.
+// String возвращает стрoку с информацией о проведенной тренировке.
 func (i InfoMessage) String() string {
 	return fmt.Sprintf("Тип тренировки: %s\nДлительность: %v мин\nДистанция: %.2f км.\nСр. скорость: %.2f км/ч\nПотрачено ккал: %.2f\n",
 		i.TrainingType,
