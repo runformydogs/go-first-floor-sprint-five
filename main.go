@@ -112,7 +112,7 @@ type Walking struct {
 // Calories возвращает количество потраченных килокалорий при ходьбе.
 func (w Walking) Calories() float64 {
 	avgSpeed := w.meanSpeed() * KmHInMsec
-	return (CaloriesWeightMultiplier*w.Weight + (math.Pow(avgSpeed, 2)/w.Height)*CaloriesSpeedHeightMultiplier*w.Weight) * w.Duration.Hours() * MinInHours
+	return (CaloriesWeightMultiplier*w.Weight + (math.Pow(avgSpeed, 2)/w.Height*CmInM)*CaloriesSpeedHeightMultiplier*w.Weight) * w.Duration.Hours() * MinInHours
 }
 
 // TrainingInfo возвращает структуру InfoMessage с информацией о проведенной тренировке.
@@ -147,7 +147,9 @@ func (s Swimming) Calories() float64 {
 // TrainingInfo returns info about swimming training.
 func (s Swimming) TrainingInfo() InfoMessage {
 	// вставьте ваш код ниже
-	return s.Training.TrainingInfo()
+	info := s.Training.TrainingInfo()
+	info.Calories = s.Calories()
+	return info
 }
 
 // ReadData возвращает информацию о проведенной тренировке.
